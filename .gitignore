@@ -70,8 +70,9 @@ desktop.ini
 # Commit only sample/demo transcripts, not proprietary content
 transcripts/raw/
 transcripts/*.html
-# Exception: allow curated sample transcripts
-!transcripts/samples/
+!transcripts/*.txt
+!transcripts/README.md
+
 
 # ── Generated files ───────────────────────────────────────────────────────────
 *.min.js

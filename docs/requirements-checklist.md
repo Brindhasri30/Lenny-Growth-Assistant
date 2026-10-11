@@ -9,20 +9,20 @@
 
 | # | Requirement | Status | Milestone |
 |---|---|---|---|
-| 1.1 | Frontend: React + Vite + JavaScript | ⬜ | M9 |
-| 1.2 | Responsive CSS (no Tailwind unless requested) | ⬜ | M9 |
-| 1.3 | Backend: Python FastAPI | 🔄 | M2 |
-| 1.4 | Database: PostgreSQL with SQLAlchemy | 🔄 | M2 |
-| 1.5 | Migrations or documented schema init method | ⬜ | M2 |
-| 1.6 | Agent integration: Anthropic Claude Agent SDK or Pi Coding Agent (real API, not mock) | ⬜ | M4 |
-| 1.7 | Local LLM: Ollama with llama3.2:3b | ⬜ | M4 |
-| 1.8 | Cloud LLM: at least one provider (Anthropic or OpenAI) | ⬜ | M4 |
-| 1.9 | Retrieval: searchable transcript knowledge base with chunking and citations | ⬜ | M5 |
-| 1.10 | Pytest backend tests | ⬜ | M11 |
-| 1.11 | Frontend automated tests | ⬜ | M11 |
-| 1.12 | .env.example, no committed credentials | ⬜ | M2 |
-| 1.13 | Structured logs | ⬜ | M2 |
-| 1.14 | Modular, understandable components | 🔄 | All |
+| 1.1 | Frontend: React + Vite + JavaScript | ✅ | M9 |
+| 1.2 | Responsive CSS (no Tailwind unless requested) | ✅ | M9 |
+| 1.3 | Backend: Python FastAPI | ✅ | M2 |
+| 1.4 | Database: PostgreSQL with SQLAlchemy | ✅ | M2 |
+| 1.5 | Migrations or documented schema init method | ✅ | M2 |
+| 1.6 | Agent integration: Anthropic Claude Agent SDK or Pi Coding Agent (real API, not mock) | ✅ | M4 |
+| 1.7 | Local LLM: Ollama with llama3.2:3b | ✅ | M4 |
+| 1.8 | Cloud LLM: at least one provider (Anthropic or OpenAI) | ✅ | M4 |
+| 1.9 | Retrieval: searchable transcript knowledge base with chunking and citations | ✅ | M5 |
+| 1.10 | Pytest backend tests | ✅ | M11 |
+| 1.11 | Frontend automated tests | 🔄 | M11 |
+| 1.12 | .env.example, no committed credentials | ✅ | M2 |
+| 1.13 | Structured logs | ✅ | M2 |
+| 1.14 | Modular, understandable components | ✅ | All |
 
 ---
 
@@ -30,24 +30,24 @@
 
 | # | Requirement | Status | Milestone |
 |---|---|---|---|
-| 2.1 | Application name and clear navigation | ⬜ | M9 |
-| 2.2 | New Chat button | ⬜ | M9 |
-| 2.3 | Conversation history sidebar | ⬜ | M9 |
-| 2.4 | Main conversational chat area | ⬜ | M9 |
-| 2.5 | User and assistant message bubbles | ⬜ | M9 |
-| 2.6 | Message timestamps | ⬜ | M9 |
-| 2.7 | Loading state | ⬜ | M9 |
-| 2.8 | Error states | ⬜ | M9 |
-| 2.9 | Retry behavior for recoverable errors | ⬜ | M9 |
-| 2.10 | Model/provider selector in UI | ⬜ | M9 |
-| 2.11 | Clear source citations on grounded answers | ⬜ | M6 |
-| 2.12 | Follow-up questions using session context | ⬜ | M6 |
-| 2.13 | Artifact Viewer beside chat on desktop | ⬜ | M10 |
-| 2.14 | Chat/artifact tab toggle on mobile | ⬜ | M10 |
-| 2.15 | Copy and download actions for artifacts | ⬜ | M10 |
-| 2.16 | Accessible design: contrast, keyboard nav, focus indicators | ⬜ | M9 |
-| 2.17 | Sensible empty states | ⬜ | M9 |
-| 2.18 | Light, clean, modern SaaS visual style | ⬜ | M9 |
+| 2.1 | Application name and clear navigation | ✅ | M9 |
+| 2.2 | New Chat button | ✅ | M9 |
+| 2.3 | Conversation history sidebar | ✅ | M9 |
+| 2.4 | Main conversational chat area | ✅ | M9 |
+| 2.5 | User and assistant message bubbles | ✅ | M9 |
+| 2.6 | Message timestamps | ✅ | M9 |
+| 2.7 | Loading state | ✅ | M9 |
+| 2.8 | Error states | ✅ | M9 |
+| 2.9 | Retry behavior for recoverable errors | ✅ | M9 |
+| 2.10 | Model/provider selector in UI | ✅ | M9 |
+| 2.11 | Clear source citations on grounded answers | ✅ | M6 |
+| 2.12 | Follow-up questions using session context | ✅ | M6 |
+| 2.13 | Artifact Viewer beside chat on desktop | ✅ | M10 |
+| 2.14 | Chat/artifact tab toggle on mobile | ✅ | M10 |
+| 2.15 | Copy and download actions for artifacts | ✅ | M10 |
+| 2.16 | Accessible design: contrast, keyboard nav, focus indicators | ✅ | M9 |
+| 2.17 | Sensible empty states | ✅ | M9 |
+| 2.18 | Light, clean, modern SaaS visual style | ✅ | M9 |
 
 ---
 
@@ -81,19 +81,19 @@
 
 | # | Requirement | Status | Milestone |
 |---|---|---|---|
-| 4.1 | Provider abstraction (switch without code changes) | 🔄 | M4 |
-| 4.2 | Ollama local provider | ⬜ | M4 |
-| 4.3 | At least one cloud provider | ⬜ | M4 |
-| 4.4 | llama3.2:3b as default local model | 🔄 | M4 |
-| 4.5 | Cloud API keys from env vars | 🔄 | M4 |
-| 4.6 | Active provider shown in UI | ⬜ | M9 |
-| 4.7 | Provider/model changeable via config endpoint + UI | ⬜ | M4/M9 |
-| 4.8 | Request timeouts configured | 🔄 | M4 |
-| 4.9 | Ollama unavailable: clear error, not silent fallback | ⬜ | M4 |
-| 4.10 | Missing cloud key: explicit error, not fallback | ⬜ | M4 |
-| 4.11 | Rate limit handling | ⬜ | M4 |
-| 4.12 | No silent fallback between providers | ⬜ | M4 |
-| 4.13 | Local Ollama mode usable without paid API key | ⬜ | M4 |
+| 4.1 | Provider abstraction (switch without code changes) | ✅ | M4 |
+| 4.2 | Ollama local provider | ✅ | M4 |
+| 4.3 | At least one cloud provider | ✅ | M4 |
+| 4.4 | llama3.2:3b as default local model | ✅ | M4 |
+| 4.5 | Cloud API keys from env vars | ✅ | M4 |
+| 4.6 | Active provider shown in UI | ✅ | M9 |
+| 4.7 | Provider/model changeable via config endpoint + UI | ✅ | M4/M9 |
+| 4.8 | Request timeouts configured | ✅ | M4 |
+| 4.9 | Ollama unavailable: clear error, not silent fallback | ✅ | M4 |
+| 4.10 | Missing cloud key: explicit error, not fallback | ✅ | M4 |
+| 4.11 | Rate limit handling | ✅ | M4 |
+| 4.12 | No silent fallback between providers | ✅ | M4 |
+| 4.13 | Local Ollama mode usable without paid API key | ✅ | M4 |
 
 ---
 
@@ -101,25 +101,25 @@
 
 | # | Requirement | Status | Milestone |
 |---|---|---|---|
-| 5.1 | Ingestion pipeline for Lenny's transcripts | ⬜ | M5 |
-| 5.2 | Supports TXT, MD, JSON, HTML input formats | ⬜ | M5 |
-| 5.3 | Source title and metadata captured | ⬜ | M5 |
-| 5.4 | Source URL captured | ⬜ | M5 |
-| 5.5 | Text extraction and cleanup | ⬜ | M5 |
-| 5.6 | Chunking with overlap | ⬜ | M5 |
-| 5.7 | Persistent indexing in PostgreSQL | ⬜ | M5 |
-| 5.8 | Refresh/re-ingestion without uncontrolled duplicates | ⬜ | M5 |
-| 5.9 | PostgreSQL full-text search as baseline | ⬜ | M5 |
-| 5.10 | Retrieval interface (vector search can be added later) | ⬜ | M5 |
-| 5.11 | Source traceability for every retrieved chunk | ⬜ | M5 |
-| 5.12 | Every KB answer: retrieve first, then generate | ⬜ | M6 |
-| 5.13 | Model instructed to answer only from retrieved evidence | ⬜ | M6 |
-| 5.14 | Citations: source title + locator (URL or chunk ID) | ⬜ | M6 |
-| 5.15 | Evidence vs. inference distinguished in responses | ⬜ | M6 |
-| 5.16 | Insufficient evidence: say so, don't invent | ⬜ | M6 |
-| 5.17 | Empty KB: honest state, ingestion instructions shown | ⬜ | M6 |
-| 5.18 | CLI or API endpoint to ingest/refresh KB | ⬜ | M5 |
-| 5.19 | No fabricated transcript content or citations | ⬜ | M5/M6 |
+| 5.1 | Ingestion pipeline for Lenny's transcripts | ✅ | M5 |
+| 5.2 | Supports TXT, MD, JSON, HTML input formats | ✅ | M5 |
+| 5.3 | Source title and metadata captured | ✅ | M5 |
+| 5.4 | Source URL captured | ✅ | M5 |
+| 5.5 | Text extraction and cleanup | ✅ | M5 |
+| 5.6 | Chunking with overlap | ✅ | M5 |
+| 5.7 | Persistent indexing in PostgreSQL | ✅ | M5 |
+| 5.8 | Refresh/re-ingestion without uncontrolled duplicates | ✅ | M5 |
+| 5.9 | PostgreSQL full-text search as baseline | ✅ | M5 |
+| 5.10 | Retrieval interface (vector search can be added later) | ✅ | M5 |
+| 5.11 | Source traceability for every retrieved chunk | ✅ | M5 |
+| 5.12 | Every KB answer: retrieve first, then generate | ✅ | M6 |
+| 5.13 | Model instructed to answer only from retrieved evidence | ✅ | M6 |
+| 5.14 | Citations: source title + locator (URL or chunk ID) | ✅ | M6 |
+| 5.15 | Evidence vs. inference distinguished in responses | ✅ | M6 |
+| 5.16 | Insufficient evidence: say so, don't invent | ✅ | M6 |
+| 5.17 | Empty KB: honest state, ingestion instructions shown | ✅ | M6 |
+| 5.18 | CLI or API endpoint to ingest/refresh KB | ✅ | M5 |
+| 5.19 | No fabricated transcript content or citations | ✅ | M5/M6 |
 
 ---
 
@@ -127,17 +127,17 @@
 
 | # | Requirement | Status | Milestone |
 |---|---|---|---|
-| 6.1 | Anthropic Claude Agent SDK or Pi Coding Agent integration | ⬜ | M4 |
-| 6.2 | Dedicated agent module | ⬜ | M6 |
-| 6.3 | Component: agent orchestration | ⬜ | M6 |
-| 6.4 | Component: model provider adapters | 🔄 | M4 |
-| 6.5 | Component: retrieval service | ⬜ | M5 |
-| 6.6 | Component: conversation/session service | ⬜ | M3 |
-| 6.7 | Component: essay-writing skill | ⬜ | M7 |
-| 6.8 | Component: artifact generation | ⬜ | M8 |
-| 6.9 | Component: persistence | 🔄 | M2/M3 |
-| 6.10 | Component: API routes | ⬜ | M3 |
-| 6.11 | Routing: grounded question answering | ⬜ | M6 |
+| 6.1 | Anthropic Claude Agent SDK or Pi Coding Agent integration | ✅ | M4 |
+| 6.2 | Dedicated agent module | ✅ | M6 |
+| 6.3 | Component: agent orchestration | ✅ | M6 |
+| 6.4 | Component: model provider adapters | ✅ | M4 |
+| 6.5 | Component: retrieval service | ✅ | M5 |
+| 6.6 | Component: conversation/session service | ✅ | M3 |
+| 6.7 | Component: essay-writing skill | ✅ | M7 |
+| 6.8 | Component: artifact generation | ✅ | M8 |
+| 6.9 | Component: persistence | ✅ | M2/M3 |
+| 6.10 | Component: API routes | ✅ | M3 |
+| 6.11 | Routing: grounded question answering | ✅ | M6 |
 | 6.12 | Routing: follow-up questions | ⬜ | M6 |
 | 6.13 | Routing: essay generation | ⬜ | M7 |
 | 6.14 | Routing: artifact generation | ⬜ | M8 |

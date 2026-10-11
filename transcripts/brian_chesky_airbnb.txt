@@ -1,0 +1,19 @@
+Lenny: Welcome to Lenny's Podcast. Today my guest is Brian Chesky, co-founder and CEO of Airbnb. Brian, it's great to have you.
+
+Brian Chesky: Thanks Lenny. Happy to be here.
+
+Lenny: Brian, recently you gave a talk at Config that completely went viral about what people are calling 'Founder Mode' and redesigning how Airbnb builds products. What drove you to eliminate conventional product management and take back control of the product?
+
+Brian Chesky: When Airbnb was heading toward the pandemic and then our IPO, we had grown to thousands of people and we had adopted the standard playbook: hire divisional heads, let each general manager run their own matrix, give product managers autonomy to set their own roadmaps, and operate in silos. And what happened was disastrous. We had dozens of teams building disjointed features that didn't feel like one cohesive product. The company became bureaucratic, slow, and political.
+
+Lenny: So what changed during the 2020 crisis?
+
+Brian Chesky: When COVID hit, our revenue dropped 80% in eight weeks. We had to cut 25% of our staff. I realized that if the company was going to survive, I had to stop managing like an administrator and start leading like a founder. We got rid of the classic product management function and combined product management with product marketing. Every product manager must now also be an expert product marketer who understands narrative and positioning.
+
+Lenny: How does Airbnb plan its roadmap now?
+
+Brian Chesky: We have one single shared company roadmap. There are no separate roadmaps for payments, search, or hosting that the CEO never sees. Twice a year, in May and November, we do major seasonal product releases. Every two weeks, I personally review every single critical product detail with the designers and product leaders. People said: 'That's micromanagement!' But there is a huge difference between meddling without context and being in the details because you care about excellence. Great founders are in the details. Steve Jobs was in the details. Walt Disney was in the details.
+
+Lenny: What advice would you give founders about brand marketing versus performance marketing?
+
+Brian Chesky: We cut our performance marketing budget by almost 90% during the pandemic, and you know what happened? Our traffic remained 95% of what it was before. Performance marketing is like a drug—you have to keep buying clicks to maintain traffic. Brand marketing and PR are about building equity in a cultural concept. If people don't know who you are without an ad in Google search, you don't have a brand, you just have a middleman toll.

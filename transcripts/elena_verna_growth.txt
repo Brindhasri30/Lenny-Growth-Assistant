@@ -1,0 +1,19 @@
+Lenny: Welcome to Lenny's Podcast. Today my guest is Elena Verna. Elena is one of the most respected growth advisors in tech, having worked with Amplitude, Miro, SurveyMonkey, MongoDB, and Netlify. Elena, welcome to the show.
+
+Elena Verna: Thanks for having me, Lenny. Thrilled to be here and geek out on growth.
+
+Lenny: Let's start with Product-Led Growth (PLG). People throw the term PLG around constantly, but what does it actually mean in practice for a B2B SaaS company?
+
+Elena Verna: PLG is not just putting up a self-serve checkout or a free trial button. PLG is a business model where product usage serves as the primary driver of customer acquisition, retention, and expansion. There are three core loops: acquisition loops, retention loops, and monetization loops. If your product does not naturally lead users to invite others or share artifacts, you don't have a PLG acquisition loop—you just have self-serve signups.
+
+Lenny: That's a critical distinction. Can you explain the difference between a freemium model and a free trial? When should a startup pick which one?
+
+Elena Verna: Free trial is about giving people a time-boxed taste of value—usually 14 or 30 days. It works when your product has high time-to-value or high marginal costs. Freemium is an ongoing free tier that delivers continuous utility forever. Freemium works when your product has strong virality or product network effects, like Miro or Figma, where free users generate value for other users. The danger with freemium is when companies give away the core value for free without a natural monetization trigger. You must know what creates the paywall. Is it usage limits, feature gates, or team collaboration governance?
+
+Lenny: What is the most common mistake you see early-stage founders make when trying to scale growth?
+
+Elena Verna: Trying to scale acquisition before fixing retention. Acquisition pours water into the bucket; retention is whether the bucket has holes. If your day-30 or month-3 retention curves don't flatten out, any dollar or hour spent on performance marketing or SEO is completely wasted. You must reach retention curve flattening first. Only after you have a stable cohort can you begin compounding growth.
+
+Lenny: And what metrics should founders watch to know their PLG flywheel is actually working?
+
+Elena Verna: Natural rate of growth (NRG). NRG measures the percentage of your recurring revenue that comes from organic product usage without marketing intervention. Look at product-qualified leads (PQLs) rather than marketing-qualified leads (MQLs). A PQL is a user who has experienced the 'aha moment' inside the product and hit key usage milestones indicating high intent to convert. If you align your sales team around PQLs rather than MQLs, your sales efficiency doubles.

@@ -1,163 +1,141 @@
-# Lenny Growth Assistant
+# The Lenny Growth Assistant
 
-An AI assistant grounded in Lenny's Podcast transcripts. Ask questions, generate essays, and build growth artifacts — all backed by real evidence, not hallucination.
-
-> **Status:** Under active construction (Milestone 1 of 12 complete)
+An AI-powered growth and product engineering assistant grounded strictly in conversations from *Lenny's Podcast*. Ask tactical questions, produce ~1,250-word Ship 30 for 30 essays, and inspect rich artifacts with verified transcript citations.
 
 ---
 
-## Submission
-
-Assignment submission form: **https://forms.gle/LgotDHNVxW1mbzNE7**
+## 🌟 Key Features
+- **Deterministic Transcript Grounding:** Answers are backed by full-text search across interview transcripts with chunk-level citations.
+- **Ship 30 for 30 Essay Skill:** Dedicated writing mode producing structured atomic essays (~1,250 words) with high-hook headlines and actionable takeaways.
+- **Side-by-Side Artifact Viewer:** View, copy, and download generated Markdown and sandboxed HTML artifacts right beside the conversation.
+- **Multi-Model Provider Abstraction:** Runs completely offline and free using local **Ollama (`llama3.2:3b`)**, with seamless switching to Anthropic Claude or OpenAI when keys are configured.
+- **PostgreSQL Persistence:** Complete session and message persistence with strict conversation isolation.
 
 ---
 
-## Quick Start (Windows — coming in Milestone 11)
+## 🚀 Quickstart & Local Setup
 
-Full setup instructions will be added in Milestone 11. For now, see the sections below for manual setup.
+### 1. Prerequisites
+- **Python 3.10+** (existing virtual environment located in `backend/venv`)
+- **Node.js 18+** & npm
+- **PostgreSQL 14+** running locally on port 5432
+- **Ollama** running locally with `llama3.2:3b` model installed
 
-### Prerequisites
-
-| Tool | Required Version | How to Check |
-|---|---|---|
-| Python | 3.10+ | `python --version` |
-| Node.js | 18+ | `node --version` |
-| npm | 8+ | `npm --version` |
-| PostgreSQL | 14+ | `psql --version` |
-| Git | Any | `git --version` |
-| Ollama | Latest | `ollama --version` |
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/lenny-growth-assistant.git
-cd lenny-growth-assistant
-```
-
-### 2. Configure environment
-
-```bash
+### 2. Configure Environment Variables
+Copy `.env.example` to `.env`:
+```cmd
 copy .env.example .env
-# Edit .env with your PostgreSQL password and optional API keys
+```
+Ensure your PostgreSQL database password is set in `.env`:
+```env
+DATABASE_URL=postgresql+psycopg://postgres:your_password@localhost:5432/lenny_assistant
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.2:3b
+ACTIVE_PROVIDER=ollama
 ```
 
-### 3. Set up PostgreSQL
-
-Open **pgAdmin** or **psql** and run:
-
-```sql
-CREATE DATABASE lenny_assistant;
+### 3. Initialize Database & Tables
+Create the database and initialize all tables and search indices:
+```cmd
+psql -U postgres -c "CREATE DATABASE lenny_assistant;"
+cd D:\lenny-growth-assistant\backend
+venv\Scripts\python.exe -m app.init_db
 ```
 
-Then update `DATABASE_URL` in your `.env` file with your PostgreSQL username and password.
-
-### 4. Set up the Python backend
-
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
+### 4. Ingest Seed Transcripts
+Ingest the provided seed episodes into the PostgreSQL knowledge base:
+```cmd
+cd D:\lenny-growth-assistant\backend
+venv\Scripts\python.exe -m app.ingest "..\transcripts\elena_verna_growth.txt" --title "Elena Verna on PLG Loops" --url "https://lennyspodcast.com/elena-verna"
+venv\Scripts\python.exe -m app.ingest "..\transcripts\brian_chesky_airbnb.txt" --title "Brian Chesky on Founder Mode" --url "https://lennyspodcast.com/brian-chesky"
+venv\Scripts\python.exe -m app.ingest "..\transcripts\shreyas_doshi_product.txt" --title "Shreyas Doshi on Product Sense" --url "https://lennyspodcast.com/shreyas-doshi"
 ```
 
-### 5. Initialize the database
-
-```bash
-python -c "from app.database import init_db; init_db()"
+### 5. Start Backend
+```cmd
+cd D:\lenny-growth-assistant\backend
+venv\Scripts\uvicorn.exe main:app --reload --port 8000
 ```
+- API Docs: `http://localhost:8000/docs`
+- Health probe: `http://localhost:8000/health`
+- Readiness probe: `http://localhost:8000/ready`
 
-### 6. Start Ollama
-
-In a separate terminal:
-```bash
-ollama serve
-```
-
-Make sure the `llama3.2:3b` model is pulled:
-```bash
-ollama pull llama3.2:3b
-```
-
-### 7. Start the backend
-
-```bash
-cd backend
-venv\Scripts\activate
-uvicorn main:app --reload --port 8000
-```
-
-### 8. Start the frontend (coming in Milestone 9)
-
-```bash
-cd frontend
+### 6. Start Frontend
+```cmd
+cd D:\lenny-growth-assistant\frontend
 npm install
 npm run dev
 ```
-
-### 9. Ingest transcripts (coming in Milestone 5)
-
-```bash
-python -m app.ingest "path\to\transcript.txt" --title "Episode Title"
-```
+Open `http://localhost:5173` in your browser.
 
 ---
 
-## Project Structure
+## 🧪 Running Automated Tests
+
+Run backend unit and integration tests:
+```cmd
+cd D:\lenny-growth-assistant\backend
+venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+All tests run using an isolated in-memory test database, covering:
+- Configuration and CORS parsing
+- Database schema relationships and cascade deletion
+- API routes (`/health`, `/ready`, `/api/config`, `/api/sessions`, `/api/knowledge`)
+- Grounded AI chat flow with citations
+- Ship 30 for 30 essay generation and artifact creation
+- Session isolation
+
+---
+
+## 📁 Project Architecture
 
 ```
 lenny-growth-assistant/
 ├── backend/
 │   ├── app/
-│   │   ├── skills/          # Essay writing skill files
-│   │   ├── config.py        # Settings from environment
-│   │   ├── database.py      # SQLAlchemy models
-│   │   ├── providers.py     # Ollama/Anthropic/OpenAI adapters
-│   │   └── schemas.py       # Pydantic request/response models
-│   ├── tests/               # pytest test suite
-│   ├── main.py              # FastAPI application entry point
-│   └── requirements.txt     # Python dependencies
-├── frontend/                # React + Vite application
+│   │   ├── agent.py          # Agent orchestration & Ship 30 essay engine
+│   │   ├── config.py         # Pydantic settings & .env loading
+│   │   ├── database.py       # SQLAlchemy 2.0 models & PostgreSQL FTS
+│   │   ├── ingest.py         # Transcript ingestion CLI
+│   │   ├── init_db.py        # Database migration & verification script
+│   │   ├── logging_config.py # Structured logging with API key redaction
+│   │   ├── providers.py      # Ollama, Anthropic, and OpenAI adapters
+│   │   ├── retrieval.py      # Chunking, extraction, and FTS retrieval
+│   │   ├── routers/          # Modular API route controllers
+│   │   └── schemas.py        # Pydantic request/response validation
+│   ├── tests/                # Automated backend test suite
+│   ├── requirements.txt      # Pinned Python dependencies
+│   └── main.py               # FastAPI entry point & CORS
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ArtifactViewer.jsx # Sandboxed iframe & markdown viewer
+│   │   │   └── MessageBubble.jsx  # Chat bubble with expandable citations
+│   │   ├── api.js            # Frontend REST API client
+│   │   ├── App.jsx           # Main chat & session management layout
+│   │   └── index.css         # Modern SaaS CSS design system
+│   ├── package.json          # Vite & React dependencies
+│   └── vite.config.js        # Vite dev proxy configuration
+├── transcripts/              # Seed podcast transcripts & provenance guide
 ├── docs/
-│   ├── implementation-plan.md
-│   ├── requirements-checklist.md
-│   ├── PRD.md               # Product Requirements Document
-│   ├── design.md            # Design system and UX principles
-│   └── architecture.md      # System architecture
-├── agent-transcripts/       # Implementation logs and demo scripts
-├── transcripts/             # Your transcript files (not committed)
-├── .env.example             # Environment variable template
-├── .gitignore
-└── README.md
+│   ├── PRD.md                # Product requirements document
+│   ├── design.md             # UX design specification & a11y standards
+│   └── architecture.md       # Technical architecture specification
+└── agent-transcripts/        # Decisions log, audit trails, and demo script
 ```
 
 ---
 
-## Architecture Overview
+## 🚀 Deployment Notes
 
-- **Frontend:** React + Vite (port 5173)
-- **Backend:** Python FastAPI (port 8000)
-- **Database:** PostgreSQL with SQLAlchemy ORM
-- **Local LLM:** Ollama with llama3.2:3b
-- **Cloud LLM:** Anthropic Claude or OpenAI GPT (optional, requires API key)
-- **Retrieval:** PostgreSQL full-text search (tsvector/GIN index)
-
-See [docs/architecture.md](docs/architecture.md) for the full architecture document.
+### Live Deployment Options:
+- **Backend:** Deployable to Render, Railway, or AWS Lightsail using `uvicorn main:app --host 0.0.0.0 --port $PORT` connected to a managed PostgreSQL database.
+- **Frontend:** Deployable to Vercel or Netlify (`npm run build`) with `VITE_API_URL` pointing to your deployed backend domain.
+- **Local Demonstration (Recommended):** Evaluated and run natively on Windows 11 with PostgreSQL and local Ollama (`llama3.2:3b`).
 
 ---
 
-## Troubleshooting
-
-**Backend won't start:** Check that your `.env` file exists and `DATABASE_URL` is correct.
-
-**Ollama connection refused:** Run `ollama serve` in a separate terminal window.
-
-**Database connection error:** Verify PostgreSQL is running and the database `lenny_assistant` exists.
-
-**Empty knowledge base:** You need to ingest transcript files. See the ingestion instructions above.
-
----
-
-## Implementation Progress
-
-See [docs/implementation-plan.md](docs/implementation-plan.md) for all 12 milestones.  
-See [docs/requirements-checklist.md](docs/requirements-checklist.md) for per-requirement status.
+## 📝 Assignment Submission
+- **Submission Form:** [https://forms.gle/LgotDHNVxW1mbzNE7](https://forms.gle/LgotDHNVxW1mbzNE7)
+- **Demo Script:** Available in [`agent-transcripts/demo-script.md`](file:///d:/lenny-growth-assistant/agent-transcripts/demo-script.md)

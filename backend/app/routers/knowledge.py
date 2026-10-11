@@ -1,13 +1,15 @@
 """
-Knowledge base status and inspection endpoints.
+Knowledge base status, ingestion, and search retrieval endpoints.
 """
-from fastapi import APIRouter, Depends
+from typing import List, Optional
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy import func, select, text
 from sqlalchemy.orm import Session
 
 from app.database import TranscriptChunk, TranscriptSource, get_db, get_engine
 from app.logging_config import get_logger
-from app.schemas import KnowledgeStatusResponse
+from app.retrieval import ingest_file, retrieve_relevant_chunks
+from app.schemas import IngestRequest, IngestResponse, KnowledgeStatusResponse
 
 logger = get_logger("knowledge_router")
 router = APIRouter(prefix="/api/knowledge", tags=["Knowledge"])
@@ -68,3 +70,41 @@ def get_knowledge_status(db: Session = Depends(get_db)):
         sources=sources_data,
         fts_ready=fts_ready,
     )
+
+
+@router.post("/ingest", response_model=IngestResponse, status_code=status.HTTP_201_CREATED)
+def ingest_transcript(payload: IngestRequest, db: Session = Depends(get_db)):
+    """
+    Ingest a transcript file (.txt, .md, .json, .html).
+    Splits into overlapping chunks, computes SHA-256 hash, and indexes in PostgreSQL.
+    """
+    try:
+        res = ingest_file(
+            file_path_str=payload.file_path,
+            title=payload.title,
+            db=db,
+            source_url=payload.source_url,
+            source_type=payload.source_type,
+            episode_number=payload.episode_number,
+            published_date=payload.published_date,
+            force_reingest=payload.force_reingest,
+        )
+        return IngestResponse(**res)
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+    except Exception as e:
+        logger.error(f"Ingestion failed: {e}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Ingestion failed: {e}")
+
+
+@router.get("/search")
+def search_knowledge(
+    q: str = Query(..., min_length=1, description="Search query string"),
+    limit: int = Query(5, ge=1, le=20),
+    db: Session = Depends(get_db),
+):
+    """Search knowledge base chunks directly for debugging or citation lookup."""
+    results = retrieve_relevant_chunks(query=q, db=db, top_k=limit)
+    return {"query": q, "count": len(results), "results": results}

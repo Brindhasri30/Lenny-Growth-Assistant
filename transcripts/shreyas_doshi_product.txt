@@ -1,0 +1,23 @@
+Lenny: Welcome to Lenny's Podcast. Today my guest is Shreyas Doshi. Shreyas was previously a product leader at Stripe, Twitter, and Google, and is now one of the most widely read teachers on product management strategy and career growth. Shreyas, welcome.
+
+Shreyas Doshi: Thank you Lenny. It's a real privilege to be here with you.
+
+Lenny: Shreyas, your LNO Framework is one of the most shared mental models in tech. Can you explain what the LNO framework is and how PMs and leaders can use it to avoid burnout?
+
+Shreyas Doshi: Absolutely. LNO stands for Leverage, Neutral, and Overhead. Most knowledge workers treat all tasks as requiring 100% effort and perfection. That is the fastest path to burnout and mediocrity. Instead, categorize your work into three buckets:
+First, Leverage tasks: These are tasks where an exceptional output creates a 10x differential impact. Examples include product strategy, core positioning, defining the North Star metric, and key architectural choices. You should pour your best energy, creativity, and time into Leverage tasks.
+Second, Neutral tasks: Doing them well is expected, but doing them 10x better adds minimal value. Think of weekly status reports, standard sprint planning, or routine feature specs. Aim for competence and speed, not perfection.
+Third, Overhead tasks: Necessary administrative work with zero upside—expense reports, compliance training, low-priority meetings. Do them with the minimum acceptable effort as fast as possible.
+If you don't aggressively protect time for Leverage tasks, your calendar will naturally be consumed 100% by Neutral and Overhead tasks.
+
+Lenny: That's brilliant. How should product managers think about 'Product Sense'? Can product sense be learned, or is it an innate gift?
+
+Shreyas Doshi: Product sense is not magic, and it's not innate. Product sense is the ability to consistently make correct product decisions even in the presence of ambiguity. It comes from three inputs:
+1. Empathy: Deeply understanding user psychology and unarticulated needs.
+2. Domain knowledge: Knowing the competitive landscape, past failures, and industry benchmarks.
+3. Creativity: Connecting dots across unrelated domains to create novel solutions.
+You build product sense by observing users directly, analyzing dozens of successful and failed products, and predicting how product changes will affect user behavior before looking at analytics.
+
+Lenny: What is your take on metrics-driven product development?
+
+Shreyas Doshi: Metrics are a proxy for reality, not reality itself. The danger is Goodhart's Law: when a measure becomes a target, it ceases to be a good measure. If a team only optimizes for 7-day conversion or click-through rates, they will eventually spam users with notifications and destroy long-term trust. Always pair a primary velocity or growth metric with a counter-balancing health or trust metric.
