@@ -1,0 +1,92 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+*.log
+
+# Virtual environments — NEVER commit these
+venv/
+.venv/
+env/
+ENV/
+backend/venv/
+backend/.venv/
+
+# ── Secrets and Environment ───────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+secrets/
+credentials/
+
+# ── Node.js / Frontend ────────────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn/
+dist/
+frontend/dist/
+.vite/
+
+# ── Database ──────────────────────────────────────────────────────────────────
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.sql.gz
+alembic/versions/*.pyc
+
+# ── IDE and OS ────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Transcript data (potentially large or proprietary) ───────────────────────
+# Commit only sample/demo transcripts, not proprietary content
+transcripts/raw/
+transcripts/*.html
+# Exception: allow curated sample transcripts
+!transcripts/samples/
+
+# ── Generated files ───────────────────────────────────────────────────────────
+*.min.js
+*.min.css
+coverage/
+*.coverage
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+# (Docker files themselves ARE committed; only ignore generated volumes)
+docker-data/
+postgres-data/
+
+# ── Temporary / scratch ───────────────────────────────────────────────────────
+*.tmp
+*.bak
+*.orig
+scratch/
+tmp/
